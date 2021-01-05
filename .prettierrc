@@ -1,0 +1,6 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "svelteSortOrder": "scripts-markup-styles",
+  "svelteStrictMode": true
+}
