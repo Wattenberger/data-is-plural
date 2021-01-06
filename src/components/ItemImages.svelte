@@ -1,19 +1,25 @@
 <script>
   import ItemImage from "$components/ItemImage.svelte";
-  import randomFly from "$components/random-fly.js";
-  import { topicsMap, topicToSlugMap } from "$components/topics.js";
+  import randomFly from "$components/random-fly";
+  import { topicsMap, topicToSlugMap, imageNames } from "$components/topics";
+  import { pickFrom } from "./utils";
 
   export let topics = [];
 
-  $: images = topics.map(topic => topicToSlugMap[topic]).filter(d => d);
+  $: topics = topics.map(topic => topicToSlugMap[topic]).filter(d => d);
+  $: existingImageNames = imageNames.filter(
+    d => topics.includes(d) || topics.includes(`${d} 2`)
+  );
+  const numberOfImages = 9;
+  $: images = new Array(numberOfImages)
+    .fill(0)
+    .map(_ => pickFrom(existingImageNames))
+    .filter(d => d);
 </script>
 
 <div class="images">
   {#each images as image, i (image + i)}
     <ItemImage {image} />
-    <ItemImage {image} />
-    <ItemImage image="{image} 2" />
-    <ItemImage image="{image} 2" />
   {/each}
 </div>
 
