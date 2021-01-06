@@ -4,12 +4,14 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"update": "node scripts/fetch-sheet.js",
-		"build": "svelte-kit build",
+		"adapt": "svelte-kit adapt",
+		"build": "svelte-kit build && svelte-kit adapt",
 		"start": "svelte-kit start"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "next",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "^1.0.0-next.1",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.0",
 		"@sveltejs/snowpack-config": "next",
 		"sass": "^1.0.0",
 		"svelte": "^3.29.0",
@@ -17,13 +19,10 @@
 	},
 	"dependencies": {
 		"@rollup/plugin-dsv": "^2.0.1",
-		"@sveltejs/adapter-netlify": "^1.0.0-next.0",
-		"@sveltejs/svelte-virtual-list": "^3.0.1",
 		"d3": "^6.3.1",
 		"fs": "^0.0.1-security",
 		"prettier-plugin-svelte": "^1.4.2",
 		"request": "^2.88.2",
-		"svelte-tiny-virtual-list": "^1.1.4",
 		"zdog": "^1.1.2"
 	}
 }
