@@ -1,10 +1,13 @@
 <footer>
   <div>
-    Data pulled from the
+    Data from the
     <a href="https://github.com/data-is-plural/newsletter-archive">
       Data is Plural
     </a>
-    archive
+    archive, photos are from
+    <a href="">Unsplash</a>
+    , some colors are from
+    <a href="https://vanschneider.com/colors">Color Claim</a>
   </div>
   Made with 💗 by
   <a href="https://twitter.com/Wattenberger">Amelia Wattenberger</a>

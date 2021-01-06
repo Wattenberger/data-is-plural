@@ -25,7 +25,7 @@
     bottom: 0;
     left: 0;
     pointer-events: none;
-    overflow: hidden;
+    // overflow: hidden;
     z-index: 100;
   }
 </style>

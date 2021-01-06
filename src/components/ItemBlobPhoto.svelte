@@ -23,8 +23,10 @@
   let blob = "";
   $: {
     const _ = str.slice(0, 0);
-    x = randomBetween(-500, 500);
-    y = randomBetween(-window.innerHeight * 0.4, window.innerHeight * 0.4);
+    x =
+      Math.random() < 0.5 ? randomBetween(-390, -100) : randomBetween(100, 390);
+    y =
+      Math.random() < 0.5 ? randomBetween(-350, -100) : randomBetween(100, 350);
     scale = randomBetween(0.9, 3);
     blob = generator().path;
     hasImage = Math.random() < 0.4;
@@ -34,7 +36,7 @@
 <div
   class="wrapper"
   style="transform: translate({x}px, {y}px)"
-  in:randomFly="{{ x, y }}">
+  in:randomFly="{{ x, y, duration: 1600, delay: randomBetween(0, 3) }}">
   <div
     class="photo"
     style="clip-path: url(#blob-clip-path-{id}); transform: translate(-50%,
@@ -58,7 +60,7 @@
 <style lang="scss">
   .wrapper {
     position: absolute;
-    top: 50%;
+    top: 36%;
     left: 50%;
     transition: all 0.9s ease-out;
   }

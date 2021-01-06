@@ -29,7 +29,9 @@
       item.headline.split(" ").find(d => d.length > 10));
 </script>
 
-<div class="blobs">
+<div
+  class="blobs"
+  style="--background: {colors[0]}; --background-2: {gradientColor2}; --color: {colors[1]}">
   <ItemBlobPhoto str="{item.headline}" />
   <ItemBlobPhoto str="{item.headline}" />
   <ItemBlobPhoto str="{item.headline}" />
@@ -86,6 +88,12 @@
     // margin: 0 auto;
   }
 
+  .item {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
   h1 {
     // font-family: "Prata", serif;
     // font-family: "Playfair Display", serif;
@@ -123,6 +131,7 @@
     padding: 1em 2em;
     box-shadow: none;
     transform: translate(-50%, -50%);
+    z-index: 100;
     cursor: pointer;
 
     strong {
