@@ -273,6 +273,7 @@
 
 <button
   class:faded="{hasSelected && !isUnmounting}"
+  class:selected="{isUnmounting}"
   on:click="{onSelectLocal}"
   class="wrapper"
   on:mousemove="{onMouseMove}"
@@ -319,6 +320,9 @@
     align-items: center;
     justify-content: center;
     transition: all 0.8s ease-out;
+  }
+  .selected {
+    z-index: 100;
   }
   button {
     appearance: none;
