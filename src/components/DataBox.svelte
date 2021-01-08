@@ -12,7 +12,7 @@
   export let onReroll = () => {};
 
   $: isDark = hcl(d3Color(colors[0])).l < 50;
-  const getShiftedColor = str => {
+  const getShiftedColor = (str) => {
     let color = d3Color(str);
     if (!color) return "#fff";
     const shift = 20;
@@ -26,7 +26,9 @@
   $: isLongHeadline =
     item &&
     (item.headline.length > 32 ||
-      item.headline.split(" ").find(d => d.length > 10));
+      item.headline.split(" ").find((d) => d.length > 10));
+
+  $: links = item.links.split("\n");
 </script>
 
 <div
@@ -47,6 +49,18 @@
         <p style="color: {isDark ? '#fff' : '#000'}">
           {@html item.text}
         </p>
+        <div class="links">
+          {#each links as link, i}
+            <a
+              href="{link}"
+              class="link"
+              title="{link}"
+              style="color: {colors[1]}">
+              Link
+              {i + 1}
+            </a>
+          {/each}
+        </div>
       </div>
     {/if}
     <button class="reroll" on:click="{onReroll}">
@@ -148,5 +162,17 @@
       font-size: 3em;
       line-height: 1.1em;
     }
+  }
+
+  .links {
+    text-align: right;
+  }
+
+  .link {
+    text-decoration: none;
+    padding: 3px;
+    margin: 3px;
+    font-weight: normal;
+    font-size: 0.85em;
   }
 </style>
