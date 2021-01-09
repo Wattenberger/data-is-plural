@@ -66,11 +66,11 @@
   });
 </script>
 
-<!-- <svelte:window
+<svelte:window
   on:keydown="{e => {
-    if (e.key != 'r') return;
+    if (e.key != '\\') return;
     onReroll();
-  }}" /> -->
+  }}" />
 
 <!-- <GrabData bind:data /> -->
 

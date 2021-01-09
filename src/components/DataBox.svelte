@@ -71,7 +71,7 @@
     {/if}
     <button class="reroll" on:click="{onReroll}">
       Re-roll [
-      <strong>r</strong>
+      <strong>\</strong>
       ]
     </button>
     <ItemImages topics="{item.topics}" />
