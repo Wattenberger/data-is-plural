@@ -27,6 +27,16 @@
     item &&
     (item.headline.length > 32 ||
       item.headline.split(" ").find(d => d.length > 10));
+
+  $: splitLinks = item && item.links.split("\n");
+
+  const removeChrome = str =>
+    str
+      .replace(/^(http:\/\/www\.)/, "")
+      .replace(/^(https:\/\/www\.)/, "")
+      .replace(/^(www\.)/, "")
+      .replace(/^(http:\/\/)/, "")
+      .replace(/^(https:\/\/)/, "");
 </script>
 
 <div
@@ -47,6 +57,16 @@
         <p style="color: {isDark ? '#fff' : '#000'}">
           {@html item.text}
         </p>
+        <div class="links">
+
+          {#each splitLinks as link}
+            <a href="{link}" class="link" title="{link}">
+              <span class="base">{removeChrome(link).split('/')[0]}</span>
+              <span class="full">{removeChrome(link)}</span>
+            </a>
+          {/each}
+
+        </div>
       </div>
     {/if}
     <button class="reroll" on:click="{onReroll}">
@@ -137,6 +157,25 @@
     strong {
       font-weight: 900;
     }
+  }
+
+  .link {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .link .full {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+  }
+  .link:hover .base {
+    opacity: 0;
+  }
+  .link:hover .full {
+    opacity: 1;
   }
 
   @media (max-width: 600px) {
