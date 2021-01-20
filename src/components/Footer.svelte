@@ -15,6 +15,7 @@
 
 <style>
   footer {
+    margin-top: 9em;
     padding: 2em;
   }
 </style>
