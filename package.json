@@ -9,7 +9,7 @@
 		"dev": "vite dev",
 		"update": "node scripts/fetch-sheet.js",
 		"adapt": "vite adapt",
-		"build": "vite build && vite adapt",
+		"build": "vite build",
 		"start": "vite start"
 	},
 	"devDependencies": {
