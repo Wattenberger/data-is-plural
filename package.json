@@ -2,6 +2,9 @@
 	"name": "datasets",
 	"version": "0.0.1",
 	"type": "module",
+	"engines": {
+		"node":">=16.9"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"update": "node scripts/fetch-sheet.js",
