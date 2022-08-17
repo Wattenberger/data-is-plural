@@ -1,6 +1,6 @@
-const fs = require("fs");
-const request = require("request");
-const d3 = require("d3");
+import fs from "fs"
+import request from "request"
+import d3 from "d3"
 
 const CWD = process.cwd();
 const CONFIG_PATH = `${CWD}/scripts/config.json`;
